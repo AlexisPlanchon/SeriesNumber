@@ -1,0 +1,24 @@
+CACHE MANIFEST
+#以下のファイルをキャッシュする
+apad.png
+font0.png
+icon0.png
+pad.png
+index.html
+sounds/clear.mp3
+sounds/correct.mp3
+sounds/incorrect.mp3
+sounds/mainTheme.mp3
+sounds/openTheme.mp3
+sounds/results.mp3
+images/back.png
+build/enchant.js
+build/main.js
+build/plugins/ui.enchant.js
+build/plugins/util.enchant.js
+
+#NETWORK:
+#以下のファイルはキャッシュしないでオンラインから取得する
+
+#FALLBACK:
+#キャッシュファイルが存在しない場合に表示する代替ファイル
