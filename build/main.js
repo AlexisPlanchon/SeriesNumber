@@ -2,8 +2,8 @@ enchant();
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //VARIABLES
-var SCREEN_WIDTH  = 798;
-var SCREEN_HEIGHT = 1024;
+var SCREEN_WIDTH  = window.innerWidth;
+var SCREEN_HEIGHT = window.innerHeight;
 var game = null;
 var time = 0;
 var speedSelected = 0;
@@ -90,7 +90,7 @@ window.onload = function(){
     game.fps = 60;
 
     //PRELOADS
-    game.preload('./sounds/correct.mp3','./sounds/incorrect.mp3','./sounds/clear.mp3','./sounds/mainTheme.mp3','./sounds/openTheme.mp3','./sounds/results.mp3','./images/back.png');
+    game.preload('./sounds/correct.mp3','./sounds/incorrect.mp3','./images/back.png');
 
     game.onload = function(){
 
@@ -122,7 +122,6 @@ window.onload = function(){
         var startButton = new CreateButton("►", SCREEN_WIDTH/2-85, 500);
         startButton.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/openTheme.mp3'].play();
         });
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -174,8 +173,6 @@ window.onload = function(){
             selectedQuestionLvl3 = [];
             selectedQuestionLvl4 = [];
             lastQuestionLvl1 = false;
-            game.assets['./sounds/openTheme.mp3'].stop();
-            game.assets['./sounds/mainTheme.mp3'].play();
             game.pushScene(game.level());
         });
 
@@ -192,8 +189,6 @@ window.onload = function(){
             selectedQuestionLvl3 = [];
             selectedQuestionLvl4 = [];
             lastQuestionLvl1 = false;
-            game.assets['./sounds/openTheme.mp3'].stop();
-            game.assets['./sounds/mainTheme.mp3'].play();
             game.pushScene(game.level());
         });
 
@@ -210,8 +205,6 @@ window.onload = function(){
             selectedQuestionLvl3 = [];
             selectedQuestionLvl4 = [];
             lastQuestionLvl1 = false;
-            game.assets['./sounds/openTheme.mp3'].stop();
-            game.assets['./sounds/mainTheme.mp3'].play();
             game.pushScene(game.level());
         });
 
@@ -308,8 +301,6 @@ window.onload = function(){
         back.moveTo(SCREEN_WIDTH-100, 10);
         back.addEventListener(Event.TOUCH_END, function(e){
             game.popScene(game.speedSelection());
-            game.assets['./sounds/mainTheme.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
         scene.addChild(back);
 
@@ -320,84 +311,84 @@ window.onload = function(){
         //ANSWER PANEL
 
         //BUTTON 1
-        var answerButton1 = new CreateButton("1", 75, SCREEN_HEIGHT/1.4);
+        var answerButton1 = new CreateButton("1", (SCREEN_WIDTH/2)-(105*2)-105, SCREEN_HEIGHT/1.4);
         answerButton1.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=1}
             else{answer=1}
         });
 
         //BUTTON 2
-        var answerButton2 = new CreateButton("2", 75+(105*1), SCREEN_HEIGHT/1.4);
+        var answerButton2 = new CreateButton("2", (SCREEN_WIDTH/2)-(105*1)-105, SCREEN_HEIGHT/1.4);
         answerButton2.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=2}
             else{answer=2}
         });
 
         //BUTTON 3
-        var answerButton3 = new CreateButton("3", 75+(105*2), SCREEN_HEIGHT/1.4);
+        var answerButton3 = new CreateButton("3", SCREEN_WIDTH/2-105, SCREEN_HEIGHT/1.4);
         answerButton3.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=3}
             else{answer=3}
         });
 
         //BUTTON 4
-        var answerButton4 = new CreateButton("4", 75+(105*3), SCREEN_HEIGHT/1.4);
+        var answerButton4 = new CreateButton("4", SCREEN_WIDTH/2+(105*1)-105, SCREEN_HEIGHT/1.4);
         answerButton4.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=4}
             else{answer=4}
         });
 
         //BUTTON 5
-        var answerButton5 = new CreateButton("5", 75+(105*4), SCREEN_HEIGHT/1.4);
+        var answerButton5 = new CreateButton("5", SCREEN_WIDTH/2+(105*2)-105, SCREEN_HEIGHT/1.4);
         answerButton5.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=5}
             else{answer=5}
         });
 
         //BUTTON C
-        var buttonC = new CreateLargeButton("C", 75+(105*5), SCREEN_HEIGHT/1.4);
+        var buttonC = new CreateLargeButton("C", (SCREEN_WIDTH/2)+(105*3)-105, SCREEN_HEIGHT/1.4);
             buttonC.addEventListener(Event.TOUCH_END, function(e){
                 answer = '?';
                 answer2 = '?';
         });
 
         //BUTTON 6
-        var answerButton6 = new CreateButton("6", 75, SCREEN_HEIGHT/1.2);
+        var answerButton6 = new CreateButton("6", (SCREEN_WIDTH/2)-(105*2)-105, SCREEN_HEIGHT/1.2);
         answerButton6.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=6}
             else{answer=6}
         });
 
         //BUTTON 7
-        var answerButton7 = new CreateButton("7", 75+(105*1), SCREEN_HEIGHT/1.2);
+        var answerButton7 = new CreateButton("7", (SCREEN_WIDTH/2)-(105*1)-105, SCREEN_HEIGHT/1.2);
         answerButton7.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=7}
             else{answer=7}
         });
 
         //BUTTON 8
-        var answerButton8 = new CreateButton("8", 75+(105*2), SCREEN_HEIGHT/1.2);
+        var answerButton8 = new CreateButton("8", SCREEN_WIDTH/2-105, SCREEN_HEIGHT/1.2);
         answerButton8.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=8}
             else{answer=8}
         });
 
         //BUTTON 9
-        var answerButton9 = new CreateButton("9", 75+(105*3), SCREEN_HEIGHT/1.2);
+        var answerButton9 = new CreateButton("9", (SCREEN_WIDTH/2)+(105*1)-105, SCREEN_HEIGHT/1.2);
         answerButton9.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=9}
             else{answer=9}
         });
 
         //BUTTON 0
-        var answerButton0 = new CreateButton("0", 75+(105*4), SCREEN_HEIGHT/1.2);
+        var answerButton0 = new CreateButton("0", (SCREEN_WIDTH/2)+(105*2)-105, SCREEN_HEIGHT/1.2);
         answerButton0.addEventListener(Event.TOUCH_END, function(e){
             if(answer!='?'){answer2=0}
             else{answer=0}
         });
 
         //INDICE BUTTON
-        var hintoButton = new CreateLargeButton("ヒント", 75+(105*5), SCREEN_HEIGHT/1.2);
+        var hintoButton = new CreateLargeButton("ヒント", (SCREEN_WIDTH/2)+(105*3)-105, SCREEN_HEIGHT/1.2);
         hintoButton.addEventListener(Event.TOUCH_END, function(e){
             //TO POP AND DEPOP THE ADVICE
             if(indiceLabel.text != ''){
@@ -701,8 +692,6 @@ window.onload = function(){
         back.moveTo(SCREEN_WIDTH-100, 10);
         back.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/results.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
         scene.addChild(back);
 
@@ -804,8 +793,6 @@ window.onload = function(){
         back.moveTo(SCREEN_WIDTH-100, 10);
         back.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/clear.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
         scene.addChild(back);
 
@@ -813,8 +800,6 @@ window.onload = function(){
         var start = new CreateButton("►", SCREEN_WIDTH/2-85, 650);
         start.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/clear.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
 
         });
 
@@ -873,8 +858,6 @@ window.onload = function(){
         back.moveTo(SCREEN_WIDTH-100, 10);
         back.addEventListener(Event.TOUCH_END, function(e){
             game.popScene(game.speedSelection());
-            game.assets['./sounds/mainTheme.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
         scene.addChild(back);
 
@@ -1125,8 +1108,6 @@ window.onload = function(){
         back.moveTo(SCREEN_WIDTH-100, 10);
         back.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/clear.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
         scene.addChild(back);
 
@@ -1134,8 +1115,6 @@ window.onload = function(){
         var start = new CreateButton("►", SCREEN_WIDTH/2-85, 600);
         start.addEventListener(Event.TOUCH_END, function(e){
             game.replaceScene(game.speedSelection());
-            game.assets['./sounds/clear.mp3'].stop();
-            game.assets['./sounds/openTheme.mp3'].play();
         });
 
         return scene;
